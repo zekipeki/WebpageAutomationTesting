@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="extentreports-2.40.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/extentreports-2.41.2_jars/extentreports-2.40.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/extentreports-2.41.2_jars/freemarker-2.3.23.jar!/" />
+      <root url="jar://$PROJECT_DIR$/extentreports-2.41.2_jars/jsoup-1.8.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/extentreports-2.41.2_jars/sqlite-jdbc-3.8.11.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/extentreports-2.41.2_jars/sqlite-jdbc-3.8.11.1.jar!/" />
+    </SOURCES>
+  </library>
+</component>
