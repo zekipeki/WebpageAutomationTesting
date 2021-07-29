@@ -1,10 +1,8 @@
 package pages;
-
-import com.relevantcodes.extentreports.LogStatus;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.testng.Assert;
+
+import java.util.List;
 
 
 public class Shopping {
@@ -106,6 +104,19 @@ public class Shopping {
             js.executeScript("window.scrollBy(0,300)");
 
             this.confirmOrder();
+
+            try {
+                String ss1 = driver.findElement(By.xpath("//*[@id=\"center_column\"]/div/p/strong")).getText();
+                Assert.assertEquals(ss1,"Your order on My Store is complete.");
+                System.out.print(ss1);
+
+            }
+            catch (NoSuchElementException e){
+                System.out.print(e.getMessage());
+                System.out.print("\n\n Oops, something went wrong.");}
+
+
+
 
         }
 

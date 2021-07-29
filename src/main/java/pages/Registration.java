@@ -1,7 +1,5 @@
 package pages;
 
-
-import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -154,7 +152,6 @@ public class Registration {
 
 
         this.returnToHomePage();
-        //promjen
 
     }
 }
