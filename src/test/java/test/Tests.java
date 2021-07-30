@@ -39,7 +39,7 @@ public class Tests {
 
         UserPersonalInformation person= new UserPersonalInformation();
 
-        person.setEmailAddress("personpeer@example.com");
+        person.setEmailAddress("personpere@example.com");
         person.setPassword("pass123");
         person.setFirstName("Miko");
         person.setLastName("Oli");
@@ -59,12 +59,6 @@ public class Tests {
         Shopping shopping = new Shopping(driver);
         shopping.doShopping("Faded Short Sleeve T-shirts", "2");
 
-        String confirmationTextShopping = driver.findElement(By.xpath("//*[@id=\"center_column\"]/div/p")).getText();
-        //test.log(LogStatus.INFO, confirmationTextShopping);
-        //test.log(LogStatus.PASS, "Test passed.");
-        Assert.assertEquals(confirmationTextShopping, "Your order on My Store is complete.");
-        System.out.print(confirmationTextShopping);
-
     }
 
     @Test(enabled = false)
@@ -73,8 +67,7 @@ public class Tests {
         passwordRecovery.recoverPassword("miromiric@example.com");
     }
 
-    @Test
-
+    @Test(enabled = true)
     public void testOrderEnormous(){
         SignIn obj=new SignIn(driver);
         obj.logUser("miromiric@example.com","miro2");
@@ -83,6 +76,7 @@ public class Tests {
         shopping.doShopping("Faded Short Sleeve T-shirts", "9");
 
     }
+
 
     @AfterTest
     public void afterTest() {

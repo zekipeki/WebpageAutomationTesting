@@ -3,18 +3,22 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class SignIn {
 
     WebDriver driver;
     // Login
+    private By buttonLogin = By.className("login");
 
-    By buttonLogin = By.className("login");
     //log in, ALREADY REGISTERED?
-    By email = By.id("email");
-    By password = By.id("passwd");
-    By submitLogin = By.name("SubmitLogin");
+    private By email = By.id("email");
+    private By password = By.id("passwd");
+    private By submitLogin = By.name("SubmitLogin");
     private By homePage = By.xpath("//*[@id=\"header_logo\"]/a/img");
+
+    private By message = By.cssSelector(".info-account");
+
 
     public SignIn(WebDriver driver) { this.driver = driver; }
 
@@ -33,6 +37,12 @@ public class SignIn {
 
     public void clickSignInButton() {
         driver.findElement(submitLogin).click();
+    }
+
+    public void getMessage(){
+        String Message = driver.findElement(message).getText();
+        Assert.assertEquals(message,"Welcome to your account. Here you can manage all of your personal information and orders.");
+        System.out.print(message);
     }
     public void returnToHomePage(){driver.findElement(homePage).click();}
 

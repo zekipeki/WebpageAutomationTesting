@@ -8,32 +8,39 @@ public class PasswordRecovery {
     WebDriver driver;
 
     //sign in
-    By signInButton = By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a");
+    By signInButton = By.className("login");
 
     //Forgot Your Password?
-    By forgotYourPassword = By.partialLinkText("http://automationpractice.com/index.php?controller=password");
+    By ForgotYourPassword = By.cssSelector("#login_form > div > p.lost_password.form-group > a");
+
+    //message
+    By Message1 = By.cssSelector(".box > p:nth-child(2)");
 
     //provide email address
     By emailField = By.id("email");
-    By retrievePassword = By.xpath("//*[@id=\"form_forgotpassword\"]/fieldset/p/button");
+    By retrievePassword = By.className("submit");
+
+    By Message2 = By.cssSelector(".alert");
 
     //back to login
-    By backToLogIn= By.partialLinkText("http://automationpractice.com/index.php?controller=authentication");
+    By backToLogIn= By.cssSelector("#form_forgotpassword > fieldset > p > button");
 
     public PasswordRecovery (WebDriver driver) {this.driver=driver;}
 
 
     //sign in
-    public void clickSignInButton() {
+    public void clickSignInButton() {driver.findElement(signInButton).click();}
 
-        driver.findElement(signInButton).click();
-        //String confirmationTextRecovery1 = driver.findElement(By.xpath("//*[@id=\"center_column\"]/div/p/text()")).getText();
-        //Assert.assertEquals(confirmationTextRecovery1, "Please enter the email address you used to register. We will then send you a new password. ");
-        //System.out.print("\n\n"+confirmationTextRecovery1+" \n");
+    //Forgot Your Password? button
+    public void clickForgotYourPassword(){driver.findElement(ForgotYourPassword).click();}
+
+    // guide message to user
+    public void messageToUser1(){
+
+        String message1= driver.findElement(Message1).getText();
+        Assert.assertEquals(message1, "Please enter the email address you used to register. We will then send you a new password.");
+        System.out.print(message1);
     }
-
-    //Forgot Your Password?
-    public void clickForgotYourPassword(){driver.findElement(forgotYourPassword).click();}
 
     //provide email address
     public void populateEmailAdress(String strEmailAddress) {driver.findElement(emailField).sendKeys(strEmailAddress);}
@@ -41,19 +48,23 @@ public class PasswordRecovery {
 
     //back to login
     public void clickBackToLogIn() {
-
-        //String confirmationTextRecovery2 = driver.findElement(By.xpath("//*[@id=\"center_column\"]/div/p")).getText();
-        //Assert.assertEquals(confirmationTextRecovery2, "A confirmation email has been sent to your address: miromiric@example.com");
-        //System.out.print("\n\n"+confirmationTextRecovery2+" \n");
         driver.findElement(backToLogIn).click();
+    }
+
+    public void messageToUser2(){
+        String message2 = driver.findElement(Message2).getText();
+        Assert.assertEquals(message2, "A confirmation email has been sent to your address: miromiric@example.com");
+        System.out.print("\n\n"+ message2);
     }
 
     public void recoverPassword(String EmailAddress){
         this.clickSignInButton();
         this.clickForgotYourPassword();
+        this.messageToUser1();
         this.populateEmailAdress(EmailAddress);
         this.clickRetrievePassword();
         this.clickBackToLogIn();
+        this.messageToUser2();
 
     }
 
