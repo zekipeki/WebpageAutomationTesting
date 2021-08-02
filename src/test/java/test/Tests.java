@@ -39,7 +39,7 @@ public class Tests {
 
         UserPersonalInformation person= new UserPersonalInformation();
 
-        person.setEmailAddress("personpere@example.com");
+        person.setEmailAddress("pereesonpere@example.com");
         person.setPassword("pass123");
         person.setFirstName("Miko");
         person.setLastName("Oli");
@@ -73,7 +73,7 @@ public class Tests {
         obj.logUser("miromiric@example.com","miro2");
 
         Shopping shopping = new Shopping(driver);
-        shopping.doShopping("Faded Short Sleeve T-shirts", "9");
+        shopping.doShopping("Faded Short Sleeve T-shirts", "9999398569");
 
     }
 

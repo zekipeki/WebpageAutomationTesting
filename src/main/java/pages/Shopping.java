@@ -38,14 +38,11 @@ public class Shopping {
 
         public void addProductToChart() {
             driver.findElement(addToChart).click();
-            //String message = driver.findElement(By.xpath("/html/body/div/div[1]/header/div[3]/div/div/div[4]/div[1]/div[1]/h2/text()")).getText();
-            //Assert.assertEquals(message,"Product successfully added to your shopping cart");
-            //System.out.print(message);
         }
 
         public void clickProceed1() {
             driver.findElement(proceed1).click();
-            //String message = driver.findElement(By.xpath("//*[@id=\"cart_title\"]/span/text()")).getText();
+            //String message = driver.findElement(By.cssSelector(".layer_cart_product > h2:nth-child(2)")).getText();
             //Assert.assertEquals(message,"Product successfully added to your shopping cart");
             //System.out.print(message);
         }

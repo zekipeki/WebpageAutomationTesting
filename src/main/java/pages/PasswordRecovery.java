@@ -8,22 +8,22 @@ public class PasswordRecovery {
     WebDriver driver;
 
     //sign in
-    By signInButton = By.className("login");
+    private By signInButton = By.className("login");
 
     //Forgot Your Password?
-    By ForgotYourPassword = By.cssSelector("#login_form > div > p.lost_password.form-group > a");
+    private By ForgotYourPassword = By.cssSelector("#login_form > div > p.lost_password.form-group > a");
 
     //message
-    By Message1 = By.cssSelector(".box > p:nth-child(2)");
+    private By Message1 = By.cssSelector(".box > p:nth-child(2)");
 
     //provide email address
-    By emailField = By.id("email");
-    By retrievePassword = By.className("submit");
+    private By emailField = By.id("email");
+    private By retrievePassword = By.className("submit");
 
-    By Message2 = By.cssSelector(".alert");
+    private By Message2 = By.cssSelector(".alert");
 
     //back to login
-    By backToLogIn= By.cssSelector("#form_forgotpassword > fieldset > p > button");
+    private By backToLogIn= By.cssSelector("#form_forgotpassword > fieldset > p > button");
 
     public PasswordRecovery (WebDriver driver) {this.driver=driver;}
 
@@ -51,9 +51,9 @@ public class PasswordRecovery {
         driver.findElement(backToLogIn).click();
     }
 
-    public void messageToUser2(){
+    public void messageToUser2(String EmailAddress){
         String message2 = driver.findElement(Message2).getText();
-        Assert.assertEquals(message2, "A confirmation email has been sent to your address: miromiric@example.com");
+        Assert.assertEquals(message2, "A confirmation email has been sent to your address: "+EmailAddress);
         System.out.print("\n\n"+ message2);
     }
 
@@ -64,7 +64,7 @@ public class PasswordRecovery {
         this.populateEmailAdress(EmailAddress);
         this.clickRetrievePassword();
         this.clickBackToLogIn();
-        this.messageToUser2();
+        this.messageToUser2(EmailAddress);
 
     }
 
